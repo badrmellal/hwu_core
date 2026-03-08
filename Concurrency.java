@@ -30,15 +30,22 @@ public class Concurrency {
 
 
     public static void main(String[] args) throws InterruptedException {
-        Test t1 = new Test();
-        t1.start();
-        Test t2 = new Test();
-        t2.start();
-        t2.join();
-//        Task myTask = new Task();
-//        Thread t1 = new Thread(myTask, "Thread1");
-//        Thread t2 = new Thread(myTask, "Thread2");
+
+        System.out.println("Everything is running");
+//        Test t1 = new Test();
 //        t1.start();
+//        Test t2 = new Test();
 //        t2.start();
+//        t1.join();
+
+        Task myTask = new Task();
+        Thread t1 = new Thread(myTask, "Thread1");
+        t1.setPriority(Thread.MAX_PRIORITY);
+        Thread t2 = new Thread(myTask, "Thread2");
+        t1.start();
+        t2.start();
+        t1.join();
+
+        System.out.println("Main thread");
     }
 }
