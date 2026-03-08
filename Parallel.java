@@ -28,9 +28,9 @@ public class Parallel {
         }
 
         public void run(){
-            for(int i = 0; i < 1000; i++){
-                compte.deposit(1);
-                compte.withdraw(1);
+            for(int i = 0; i < 100000; i++){
+                compte.deposit(9203401);
+                compte.withdraw(13220);
             }
             System.out.println(name + " finished.");
         }
